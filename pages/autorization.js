@@ -90,12 +90,12 @@ export default function LoginStep() {
   const handleDemo = () => {
     router.push('/panel');
   };
-  const logout = () => {
-    localStorage.removeItem('authToken');
-    setUser(null);
-    setIsAuthenticated(false);
-    router.push('/');
-  };
+  // const logout = () => {
+  //   localStorage.removeItem('authToken');
+  //   setUser(null);
+  //   setIsAuthenticated(false);
+  //   router.push('/');
+  // };
   return (
     <div className="flex flex-col h-screen bg-[#0C0E3A] text-white">
       {/* Header */}
