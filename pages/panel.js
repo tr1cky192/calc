@@ -485,7 +485,7 @@ export default function Step3() {
 chie                </p>
               )}
               <p>
-                <span className="font-medium">Кількість з'єднувачів (Nz):</span> {Nz}
+                <span className="font-medium">Кількість зєднувачів (Nz):</span> {Nz}
               </p>
               <p>
                 <span className="font-medium">Кількість міжпанельних прижимів (Nmc):</span> {Nmc}
