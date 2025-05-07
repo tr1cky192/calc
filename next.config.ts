@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
         source: '/wp-json/(.*)',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
-          { key: 'Access-Control-Allow-Origin', value: 'https://asmos.hi-it.com.ua' }, // Замініть вашим доменом
+          { key: 'Access-Control-Allow-Origin', value: '*' }, // Замініть вашим доменом
           { key: 'Access-Control-Allow-Methods', value: 'GET,POST,OPTIONS' },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type, Authorization' },
         ],
