@@ -15,7 +15,7 @@ export default function Step3() {
     panelWidths: [1.098, 1.134, 1.303],
   });
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [, setIsAuthenticated] = useState(false);
   const [B, setB] = useState(constants.panelWidths[0] || 1.134);
   const [N, setN] = useState(1);
   const [panelHeight, setPanelHeight] = useState('');
@@ -26,7 +26,7 @@ export default function Step3() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const visibleCount = 3;
   const [profileOption, setProfileOption] = useState('L1'); // або 'L1_L2'
-  const [user, setUser] = useState(null);
+  const [, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [panelWidthsInput, setPanelWidthsInput] = useState(constants.panelWidths.join(', ')); // Для редагування panelWidths
   useEffect(() => {
@@ -75,10 +75,7 @@ const rawResult = N === 1
   : (N * B + constants.endClampReserve * constants.endClampsPerRow / constants.profileRows) + (N - 1) * constants.interModuleClampLength;
 
 result = Number(rawResult.toFixed(3));
-const profileOptions = [
-  { label: 'Довжина профілю L1 (м)', value: constants.L1, key: 'L1' },
-  { label: 'Довжина профілю L1_L2 (м)', value: constants.L1_L2, key: 'L1_L2' }
-];
+
 let savedResults = {};
 
 if (profileOption === 'L1') {
@@ -266,7 +263,7 @@ localStorage.setItem(`roofingResult_${profileOption}`, JSON.stringify(savedResul
               value: constants.L2,
               key: 'L2',
             },
-          ].map(({ label, value, setter, key }, index) => (
+          ].map(({ label, value, key }, index) => (
             <label key={index} className="block">
               {label}:
               <input
@@ -470,7 +467,7 @@ localStorage.setItem(`roofingResult_${profileOption}`, JSON.stringify(savedResul
         </p>
       )}
       <p>
-        <span className="font-medium">Кількість з'єднувачів (Nz):</span> {Nz}
+        <span className="font-medium">Кількість зєднувачів (Nz):</span> {Nz}
       </p>
       <p>
         <span className="font-medium">Кількість міжпанельних прижимів (Nmc):</span> {Nmc}

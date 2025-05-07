@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function LoginStep() {
   const router = useRouter();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [acceptedTerms, setAcceptedTerms] = useState(false);
-  const [user, setUser] = useState(null);
+  const [, setUser] = useState(null);
   const [errors, setErrors] = useState({ email: '', password: '', terms: '', general: '' });
  
   // useEffect(() => {
@@ -17,26 +17,26 @@ export default function LoginStep() {
   //   }
   // }, []);
 
-  const checkTokenValidity = async (token) => {
-    const response = await fetch('https://asmos.hi-it.com.ua/wp-json/custom/v1/verify_token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-    });
+  // const checkTokenValidity = async (token) => {
+  //   const response = await fetch('https://asmos.hi-it.com.ua/wp-json/custom/v1/verify_token', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Authorization': `Bearer ${token}`,
+  //     },
+  //   });
   
-    const data = await response.json();
-    if (response.ok && data.valid) {
-      setUser(data.user);
-      setIsAuthenticated(true);
-      console.log('User after setUser:', data.user); 
-      router.push('/panel'); 
-    } else {
-      logout();
-      localStorage.removeItem('authToken'); 
-    }
-  };
+  //   const data = await response.json();
+  //   if (response.ok && data.valid) {
+  //     setUser(data.user);
+  //     setIsAuthenticated(true);
+  //     console.log('User after setUser:', data.user); 
+  //     router.push('/panel'); 
+  //   } else {
+  //     logout();
+  //     localStorage.removeItem('authToken'); 
+  //   }
+  // };
 
   const handleLogin = async () => {
     setErrors({ email: '', password: '', terms: '', general: '' });

@@ -3,14 +3,13 @@ import { useEffect, useState } from 'react';
 export default function SavedDataPage() {
   const [savedData, setSavedData] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
+  const [, setProducts] = useState([]);
   const [retrievedResults, setRetrievedResults] = useState(null);
   const [gridSize, setGridSize] = useState({ columns: 10, rows: 6 });
   const CELL_SIZE = 50;
   const SUBDIVISION_COUNT = 10;
-  const [profileOption, setProfileOption] = useState();
   const SUBDIVISION_SIZE = CELL_SIZE / SUBDIVISION_COUNT;
-  const [symbolVisibility, setSymbolVisibility] = useState({
+  const [symbolVisibility] = useState({
     circle: true,
     triangle: true,
     square: true,
@@ -315,26 +314,26 @@ export default function SavedDataPage() {
     });
   };
 
-  const renderRafterLines = () => {
-    return panels.map((panel, index) => {
-      const x1 = panel.x * CELL_SIZE;
-      const y1 = panel.y * CELL_SIZE + CELL_SIZE / 4;
-      const x2 = x1 + panel.width * CELL_SIZE;
-      const y2 = y1;
+  // const renderRafterLines = () => {
+  //   return panels.map((panel, index) => {
+  //     const x1 = panel.x * CELL_SIZE;
+  //     const y1 = panel.y * CELL_SIZE + CELL_SIZE / 4;
+  //     const x2 = x1 + panel.width * CELL_SIZE;
+  //     const y2 = y1;
 
-      return (
-        <line
-          key={`rafter-${index}`}
-          x1={x1}
-          y1={y1}
-          x2={x2}
-          y2={y2}
-          stroke="orange"
-          strokeWidth="2"
-        />
-      );
-    });
-  };
+  //     return (
+  //       <line
+  //         key={`rafter-${index}`}
+  //         x1={x1}
+  //         y1={y1}
+  //         x2={x2}
+  //         y2={y2}
+  //         stroke="orange"
+  //         strokeWidth="2"
+  //       />
+  //     );
+  //   });
+  // };
 
   const getFirstWord = (str) => {
     return str?.split('_')[0] || str;
@@ -512,7 +511,7 @@ export default function SavedDataPage() {
           <p><strong>Кількість профілів у одному ряді:</strong> {retrievedResults.N1}</p>
           <p><strong>Довжина одного ряду профілів під панель:</strong> {retrievedResults.Ln1}</p>
           <p><strong>Кількість профілів під рядом панелей:</strong> {retrievedResults.L1N}</p>
-          <p><strong>Кількість з'єднювачів профілю:</strong> {retrievedResults.Nz}</p>
+          <p><strong>Кількість зєднювачів профілю:</strong> {retrievedResults.Nz}</p>
           <p><strong>Кількість комплектів міжмодульних притисків:</strong> {retrievedResults.Nmc}</p>
           <p><strong>Кількість опор під профілем для ряду панелей:</strong> {retrievedResults.Ng}</p>
     </div>
